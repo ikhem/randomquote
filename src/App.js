@@ -4,9 +4,11 @@ import api from './utils/api';
 
 function Quote(props){
   return(
-    <div>
-      <p>Author: {props.author}</p>
-      <p>Quote: {props.quote}</p>
+    <div className='quote'>
+      <p>{props.quote}</p>
+      <span className='author'>
+        <p>-{props.author}</p>
+      </span>
     </div>
   )
 }
@@ -40,10 +42,13 @@ class App extends Component {
     let quote = this.state.quote;
     return (
       <div className='container'>
-        <h1>Random Quote</h1>
-        <div>
-          <button onClick={this.handleClick}>Get Quote</button>
+        <div className='title'>
+          <h1>Random Quote</h1>
+          <div>
+            <button onClick={this.handleClick}>Get Quote</button>
+          </div>
         </div>
+
         {
           author && 
           <Quote
@@ -51,6 +56,7 @@ class App extends Component {
             quote= {quote}
           />
         }
+        
       </div>
     );
   }
